@@ -1,4 +1,3 @@
-from django.test import TestCase
 from django.core.exceptions import ValidationError
 from django.test import TestCase
 from things.models import Thing
@@ -22,7 +21,7 @@ class ThingsModelTestCase(TestCase):
         try:
             self.Thing.full_clean()
         except(ValidationError):
-            self.fail("User should be vaild")
+            self.fail("Thing should be vaild")
 
     def _assert_thing_is_invaild(self):
         with self.assertRaises(ValidationError):
