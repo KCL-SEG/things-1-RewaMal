@@ -17,6 +17,16 @@ class ThingsModelTestCase(TestCase):
         self.name = second_thing.name
         self._assert_thing_is_invaild()
 
+    def test_description_must_not_be_uniqe(self):
+        second_thing = self._create_second_thing() 
+        self.description = second_thing.description
+        self._assert_thing_is_vaild()
+
+    def test_quantity_must_not_be_uniqe(self):
+        second_thing = self._create_second_thing() 
+        self.quantity = second_thing.quantity
+        self._assert_thing_is_vaild()
+
     def _assert_thing_is_vaild(self):
         try:
             self.Thing.full_clean()
