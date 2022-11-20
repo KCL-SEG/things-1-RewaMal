@@ -24,11 +24,11 @@ class ModelTest(TestCase):
         self.thing.name = 'x' * 31
         self._assert_thing_is_invalid(message="Name must not have more than 30 characters")
 
-    def test_name_must_be_unique(self):
-        other_thing = Thing(name="Baz", description="Baz thing", quantity=1)
-        other_thing.save()
-        self.thing.name = other_thing.name
-        self._assert_thing_is_invalid(message="Name must be unique")
+    # def test_name_must_be_unique(self):
+    #     other_thing = Thing(name="Baz", description="Baz thing", quantity=1)
+    #     other_thing.save()
+    #     self.thing.name = other_thing.name
+    #     self._assert_thing_is_invalid(message="Name must be unique")
 
     def test_description_may_be_blank(self):
         self.thing.description = ''
@@ -42,17 +42,17 @@ class ModelTest(TestCase):
         self.thing.description = 'x' * 121
         self._assert_thing_is_invalid(message="Description must not have more than 120 characters")
 
-    def test_description_need_not_be_unique(self):
-        other_thing = Thing(name="Baz", description="Baz thing", quantity=1)
-        other_thing.save()
-        self.thing.description = other_thing.description
-        self._assert_thing_is_valid(message="Description need not be unique")
+    # def test_description_need_not_be_unique(self):
+    #     other_thing = Thing(name="Baz", description="Baz thing", quantity=1)
+    #     other_thing.save()
+    #     self.thing.description = other_thing.description
+    #     self._assert_thing_is_valid(message="Description need not be unique")
 
-    def test_quantity_need_not_be_unique(self):
-        other_thing = Thing(name="Baz", description="Baz thing", quantity=1)
-        other_thing.save()
-        self.thing.quantity = other_thing.quantity
-        self._assert_thing_is_valid(message="Quantity need not be unique")
+    # def test_quantity_need_not_be_unique(self):
+    #     other_thing = Thing(name="Baz", description="Baz thing", quantity=1)
+    #     other_thing.save()
+    #     self.thing.quantity = other_thing.quantity
+    #     self._assert_thing_is_valid(message="Quantity need not be unique")
 
     def test_quantity_may_be_0(self):
         self.thing.quantity = 0
