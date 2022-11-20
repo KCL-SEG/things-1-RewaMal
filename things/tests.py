@@ -12,7 +12,7 @@ class ThingsModelTestCase(TestCase):
             quantity='9',             
         )
 
-    def test_name_must_be_uniqe(self):
+    def test_name_must_be_unique(self):
         second_thing = self._create_second_thing() 
         self.thing.name = second_thing.name
         self._assert_thing_is_invalid()
@@ -22,7 +22,7 @@ class ThingsModelTestCase(TestCase):
         self.description = second_thing.description
         self._assert_thing_is_valid()
 
-    def test_quantity_must_not_be_uniqe(self):
+    def test_quantity_must_not_be_unique(self):
         second_thing = self._create_second_thing() 
         self.quantity = second_thing.quantity
         self._assert_thing_is_valid()
@@ -31,7 +31,7 @@ class ThingsModelTestCase(TestCase):
         try:
             self.thing.full_clean()
         except(ValidationError):
-            self.fail("Thing should be vaild")
+            self.fail("Thing should be valid")
 
     def _assert_thing_is_invalid(self):
         with self.assertRaises(ValidationError):
