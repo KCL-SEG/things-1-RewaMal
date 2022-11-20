@@ -19,7 +19,7 @@ class ThingsModelTestCase(TestCase):
     
     # def test_description_need_not_to_be_unique(self):
     #     second_thing =self._create_second_thing()
-    #     self.thing.description = second_thing.description
+    #     self.description = second_thing.description
     #     self._assert_thing_is_valid()
 
     # def test_quantity_must_not_be_uniqe(self):
