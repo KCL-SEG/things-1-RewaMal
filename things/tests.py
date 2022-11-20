@@ -12,20 +12,20 @@ class ThingsModelTestCase(TestCase):
             quantity='9',             
         )
 
-    # def test_name_must_be_uniqe(self):
-    #     second_thing = self._create_second_thing() 
-    #     self.thing.name = second_thing.name
-    #     self._assert_thing_is_invalid()
+    def test_name_must_be_uniqe(self):
+        second_thing = self._create_second_thing() 
+        self.thing.name = second_thing.name
+        self._assert_thing_is_invalid()
     
-    # def test_description_need_not_to_be_unique(self):
-    #     second_thing =self._create_second_thing()
-    #     self.description = second_thing.description
-    #     self._assert_thing_is_valid()
+    def test_description_need_not_to_be_unique(self):
+        second_thing =self._create_second_thing()
+        self.description = second_thing.description
+        self._assert_thing_is_valid()
 
-    # def test_quantity_must_not_be_uniqe(self):
-    #     second_thing = self._create_second_thing() 
-    #     self.quantity = second_thing.quantity
-    #     self._assert_thing_is_valid()
+    def test_quantity_must_not_be_uniqe(self):
+        second_thing = self._create_second_thing() 
+        self.quantity = second_thing.quantity
+        self._assert_thing_is_valid()
 
     def _assert_thing_is_valid(self):
         try:
